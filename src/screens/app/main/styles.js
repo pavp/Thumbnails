@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     textAlign: 'center',
+    margin: 8
   },
   imageContainer: {
     width: '90%',
@@ -58,21 +59,22 @@ const styles = StyleSheet.create({
   },
   imageCard: {
     flex: 1,
-    width: '25%',
-    height: 100,
     resizeMode: 'cover',
-    borderRadius: 10
+    borderRadius: 10,
+    aspectRatio: 1,
+    margin: 8 
   },
   cardContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
     flex: 1,
-    marginVertical: 48
+    marginVertical: 48,
+    padding: 32
   },
   cardText: {
-    color: 'gray',
+    color: '#0645AD',
     fontWeight: 'bold',
-    textAlign: 'center',
+    textAlign: 'right',
   },
   optionsContainer: {
     flexDirection: 'row',

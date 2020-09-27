@@ -6,6 +6,6 @@ export default {
   email: 'Email',
   password: 'Pasword',
   gallery: 'Gallery',
-  generate: 'Generate Thumbnails',
+  generate: 'Thumbnails',
   camera: 'Camera',
 };

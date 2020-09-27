@@ -3,7 +3,9 @@ import { View,
         Text, 
         TouchableWithoutFeedback, 
         Image, 
-        ActivityIndicator } from 'react-native';
+        ActivityIndicator,
+        Linking,
+        TouchableOpacity, } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import ImagePicker from 'react-native-image-crop-picker';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
@@ -88,15 +90,15 @@ function Main() {
         <View style={styles.cardContainer}>
           <View style={styles.urlCard}>
             <Image source={{uri:`data:${image.mime};base64,${image.data}`}} style={styles.imageCard}/>
-            <Text style={styles.cardText}>{`https://www.imagenesthumb.com/34672/${thumbs[0]}`}</Text>
+              <Text style={styles.cardText} onPress={() => Linking.openURL('https://google.com')}>{`https://www.imagenesthumb.com/34672/${thumbs[0]}`}</Text>
           </View>
           <View style={styles.urlCard}>
             <Image source={{uri:`data:${image.mime};base64,${image.data}`}} style={styles.imageCard}/>
-            <Text style={styles.cardText}>{`https://www.imagenesthumb.com/34673/${thumbs[1]}`}</Text>
+              <Text style={styles.cardText} onPress={() => Linking.openURL('https://google.com')}>{`https://www.imagenesthumb.com/34673/${thumbs[1]}`}</Text>
           </View>
           <View style={styles.urlCard}>
             <Image source={{uri:`data:${image.mime};base64,${image.data}`}} style={styles.imageCard}/>
-            <Text style={styles.cardText}>{`https://www.imagenesthumb.com/34674/${thumbs[2]}`}</Text>
+              <Text style={styles.cardText} onPress={() => Linking.openURL('https://google.com')}>{`https://www.imagenesthumb.com/34674/${thumbs[2]}`}</Text>
           </View>
         </View>
         }
