@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableWithoutFeedback, Image, ActivityIndicator } from 'react-native';
+import { View, 
+        Text, 
+        TouchableWithoutFeedback, 
+        Image, 
+        ActivityIndicator } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import ImagePicker from 'react-native-image-crop-picker';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import styles from './styles';
-import { authRemoveToken, tryThumbs } from '../../../store/actions';
+import { authRemoveToken, 
+        tryThumbs, 
+        mainRemoveThumbs } from '../../../store/actions';
 import localize from '../../../utility/localize';
 
 function Main() {
@@ -27,13 +33,26 @@ function Main() {
     dispatch(authRemoveToken());
   };
 
-  const ImageHandler = () => {
+  const GalleryHandler = () => {
     ImagePicker.openPicker({
       width: 300,
       height: 400,
       cropping: true,
       includeBase64: true,
     }).then(image => {
+      dispatch(mainRemoveThumbs());
+      setImage(image);
+    });
+  };
+
+  const CameraHandler = () => {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+      includeBase64: true,
+    }).then(image => {
+      dispatch(mainRemoveThumbs());
       setImage(image);
     });
   };
@@ -46,14 +65,19 @@ function Main() {
   return(
     <SafeAreaView style={styles.container}>
       <View style={styles.topContainer}>
-        <TouchableWithoutFeedback onPress={() => ImageHandler()}>
-          <Text style={styles.topText}>{localize.t('pickImage')}</Text>
-        </TouchableWithoutFeedback>
+        <View style={styles.optionsContainer}>
+          <TouchableWithoutFeedback onPress={() => GalleryHandler()}>
+            <Text style={styles.topText}>{localize.t('gallery')}</Text>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => CameraHandler()}>
+            <Text style={styles.topText}>{localize.t('camera')}</Text>
+          </TouchableWithoutFeedback>
+        </View>
         <View style={styles.imageContainer}>
           {image != '' && <Image source={{uri:`data:${image.mime};base64,${image.data}`}} style={styles.image}/>}
         </View>
         {ui.isLoadingGenerate ? 
-        <ActivityIndicator /> : 
+        <ActivityIndicator color='gray'/> : 
         <TouchableWithoutFeedback onPress={() => GenerateHandler()}>
           <Text style={styles.generateText}>{localize.t('generate').toUpperCase()}</Text>
         </TouchableWithoutFeedback> 

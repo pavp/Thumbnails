@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    borderRadius: 10
   },
   generateText: {
     color: '#00acee',
@@ -59,7 +60,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '25%',
     height: 100,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    borderRadius: 10
   },
   cardContainer: {
     justifyContent: 'space-between',
@@ -71,6 +73,12 @@ const styles = StyleSheet.create({
     color: 'gray',
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  optionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '80%'
   },
 });
 

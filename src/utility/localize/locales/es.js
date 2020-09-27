@@ -5,6 +5,7 @@ export default {
   username: 'Nombre de Usuario',
   email: 'Correo Electronico',
   password: 'Contraseña',
-  pickImage: 'Selecionar imagen...',
+  gallery: 'Galeria',
   generate: 'Generar Thumbnails',
+  camera: 'Camara',
 };
