@@ -62,14 +62,13 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 10,
     aspectRatio: 1,
-    margin: 8 
+    margin: 8,
   },
   cardContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
     flex: 1,
     marginVertical: 48,
-    padding: 32
   },
   cardText: {
     color: '#0645AD',
